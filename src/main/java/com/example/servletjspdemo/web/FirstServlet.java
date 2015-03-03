@@ -22,6 +22,7 @@ public class FirstServlet extends HttpServlet {
     }
 
 
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String imie = request.getParameter("imie");
@@ -30,15 +31,20 @@ public class FirstServlet extends HttpServlet {
 		String Pemail = request.getParameter("Pemail");
 		String pracodawca = request.getParameter("pracodawca");
 		String skad = request.getParameter("skad");
+		String skad2 = request.getParameter("skad2");
 		String zajecie = request.getParameter("zajecie");
 		int miejsca = 5;
 		Boolean Zemail;
+	
+		
 		
 		HttpSession session = request.getSession();
 		ServletContext ctx = request.getServletContext();
 		
+		if (imie == null)
+		{
 		response.sendRedirect("form.jsp");
-		
+		}
 		
 		session.setAttribute("imie", imie);
 		session.setAttribute("nazwisko", nazwisko);
@@ -46,7 +52,9 @@ public class FirstServlet extends HttpServlet {
 		session.setAttribute("Pemail", Pemail);
 		session.setAttribute("pracodawca", pracodawca);
 		session.setAttribute("skad", skad);
+		session.setAttribute("skad2", skad2);
 		session.setAttribute("zajecie", zajecie);
+		
 		
 		if (session.getAttribute(email) == session.getAttribute(Pemail))
 		{
@@ -58,7 +66,14 @@ public class FirstServlet extends HttpServlet {
 			Zemail = false;
 		}
 		
+		
 		response.getWriter().println(imie);
+		response.getWriter().print(skad);
+		if (skad_value == "inne")
+		{
+			response.getWriter().print(" " + skad2);
+		}
+	    //	response.getWriter().print(" " + skad2);
 		
 		//if(name!=null && !name.equals(""))
 		//{

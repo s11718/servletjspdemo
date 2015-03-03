@@ -20,24 +20,26 @@
 	 <br />
 	 Pracodawca: <input type="text" name="pracodawca" />
 	 <br />
-	 Skąd się dowiedziałeś o konferencji?
+	 Skad sie dowiedziales o konferencji?
 	 <br />
-	 <input type="radio" name="skad" value="praca" /> Ogłoszenie w pracy
+	 <input type="radio" name="skad" value="praca" /> Ogloszenie w pracy
 	 <br />
-	 <input type="radio" name="skad" value="uczelnia" /> Ogłoszenie na uczelni
+	 <input type="radio" name="skad" value="uczelnia" /> Ogloszenie na uczelni
 	 <br />
 	 <input type="radio" name="skad" value="facebook" /> Facebook
 	 <br />
 	 <input type="radio" name="skad" value="znajomi" /> Znajomi
 	 <br />
 	 <input type="radio" name="skad" value="inne" /> Inne (jakie?)
-	 <input type="text" name="skad" />
+	 <input type="text" name="skad2" />
 	 <br />
-	 Czym się zajmujesz?
+	 Czym sie zajmujesz?
 	 <input type="text" name="zajecie" />
 	 <br />
-	<input type="submit" name="wyslij" value="Wyślij">
+	<input type="submit" name="wyslij" value="Przeslij">
 </form>
+
+
 
 </body>
 </html>
