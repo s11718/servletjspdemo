@@ -8,5 +8,7 @@
 </head>
 <body>
 
+<p> Z przykrością informujemy, że wszystkie miejsca na konferencję zostały już zajętę. Zapraszamy następnym razem! </p>
+
 </body>
 </html>

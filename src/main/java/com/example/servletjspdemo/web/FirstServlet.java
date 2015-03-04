@@ -1,6 +1,8 @@
 package com.example.servletjspdemo.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -10,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.example.servletjspdemo.domain.Person;
+
 
 @WebServlet("/FirstServlet")
 public class FirstServlet extends HttpServlet {
@@ -18,12 +22,14 @@ public class FirstServlet extends HttpServlet {
 
     public FirstServlet() {
         super();
-
     }
 
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		HttpSession session = request.getSession();
+		ServletContext ctx = request.getServletContext();
 		
 		String imie = request.getParameter("imie");
 		String nazwisko = request.getParameter("nazwisko");
@@ -34,18 +40,14 @@ public class FirstServlet extends HttpServlet {
 		String skad2 = request.getParameter("skad2");
 		String zajecie = request.getParameter("zajecie");
 		int miejsca = 5;
-		Boolean Zemail;
-	
+
 		
-		
-		HttpSession session = request.getSession();
-		ServletContext ctx = request.getServletContext();
-		
-		if (imie == null)
-		{
-		response.sendRedirect("form.jsp");
+		if ( miejsca <= 0){
+			response.sendRedirect("brakMiejsc.jsp");
 		}
 		
+		
+		if(imie!=null && !imie.equals("") && nazwisko!=null && !nazwisko.equals("")&& email!=null && !email.equals("")&& Pemail!=null && !Pemail.equals("")&& pracodawca!=null && !pracodawca.equals("")&& skad!=null && !skad.equals("")&&  zajecie!=null && !zajecie.equals("") ){
 		session.setAttribute("imie", imie);
 		session.setAttribute("nazwisko", nazwisko);
 		session.setAttribute("email", email);
@@ -55,36 +57,38 @@ public class FirstServlet extends HttpServlet {
 		session.setAttribute("skad2", skad2);
 		session.setAttribute("zajecie", zajecie);
 		
-		
-		if (session.getAttribute(email) == session.getAttribute(Pemail))
-		{
-			Zemail = true;
 		}
 		
-		else
+		if (email != Pemail)
 		{
-			Zemail = false;
+			response.sendRedirect("zlyMail.jsp");
+			
+		}
+		
+		if (session.getAttribute("imie") == null){
+		response.sendRedirect("form.jsp");
 		}
 		
 		
-		response.getWriter().println(imie);
-		response.getWriter().print(skad);
-		if (skad_value == "inne")
-		{
-			response.getWriter().print(" " + skad2);
-		}
-	    //	response.getWriter().print(" " + skad2);
 		
-		//if(name!=null && !name.equals(""))
-		//{
-		//	session.setAttribute("name", name);
-		//	ctx.setAttribute("name", name);
-		//}
-		//response.getWriter().println("hello " + name + "!");
-		//response.getWriter().println("hello from session" + session.getAttribute("name") + "!");
-		//response.getWriter().println("hello from context" + ctx.getAttribute("name") + "!");
-		//response.getWriter().println("Hello World!");
+		
+		miejsca--;
+		response.sendRedirect("jestMiejsce.jsp");
+		
+		
+		response.getWriter().println(miejsca);
+		response.getWriter().println(session.getAttribute("imie"));
+		response.getWriter().println(session.getAttribute("nazwisko"));
+		response.getWriter().println(session.getAttribute("email"));
+		response.getWriter().println(session.getAttribute("Pemail"));
+		response.getWriter().println(session.getAttribute("pracodawca"));
+		response.getWriter().println(session.getAttribute("skad"));
+		response.getWriter().println(session.getAttribute("skad2"));
+		response.getWriter().println(session.getAttribute("zajecie"));
+		
+	
 	}
+		
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

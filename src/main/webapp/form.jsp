@@ -10,21 +10,21 @@
 
 <form action="FirstServlet">
 	
-	 Imie: <input type="text" name="imie" />
+	 Imię: <input type="text" name="imie" />
 	 <br />
 	 Nazwisko: <input type="text" name="nazwisko" />
 	 <br />
 	 Email: <input type="email" name="email" />
 	 <br />
-	 Potwierdz email: <input type="Pemail" name="Pemail" />
+	 Potwierdź email: <input type="Pemail" name="Pemail" />
 	 <br />
 	 Pracodawca: <input type="text" name="pracodawca" />
 	 <br />
-	 Skad sie dowiedziales o konferencji?
+	 Skąd się dowiedziałeś o konferencji?
 	 <br />
-	 <input type="radio" name="skad" value="praca" /> Ogloszenie w pracy
+	 <input type="radio" name="skad" value="praca" /> Ogłoszenie w pracy
 	 <br />
-	 <input type="radio" name="skad" value="uczelnia" /> Ogloszenie na uczelni
+	 <input type="radio" name="skad" value="uczelnia" /> Ogłoszenie na uczelni
 	 <br />
 	 <input type="radio" name="skad" value="facebook" /> Facebook
 	 <br />
@@ -36,7 +36,7 @@
 	 Czym sie zajmujesz?
 	 <input type="text" name="zajecie" />
 	 <br />
-	<input type="submit" name="wyslij" value="Przeslij">
+	<input type="submit" name="wyslij" value="Prześlij">
 </form>
 
 

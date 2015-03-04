@@ -8,5 +8,9 @@
 </head>
 <body>
 
+<p> Twoje twoje zgłoszenie zostało przyjęte. Miłej zabawy!</p>
+
+
+
 </body>
 </html>
